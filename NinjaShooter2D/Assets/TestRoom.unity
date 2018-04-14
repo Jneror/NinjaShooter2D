@@ -236,8 +236,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69103f8a357647a41826f7592251b101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerVelocity: 1
-  acceleration: 9.8
+  useForce: 0
+  playerVelocity: 2
+  acceleration: 50
   friction: 10
 --- !u!212 &2005360584
 SpriteRenderer:
@@ -308,7 +309,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 20
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
