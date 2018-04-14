@@ -236,10 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69103f8a357647a41826f7592251b101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useForce: 0
   playerVelocity: 2
-  acceleration: 50
-  friction: 10
 --- !u!212 &2005360584
 SpriteRenderer:
   m_ObjectHideFlags: 0
