@@ -31,5 +31,7 @@ public class PlayerMovement : MonoBehaviour {
 		
 		mov = mov.normalized*playerVelocity*Time.deltaTime;
 		transform.Translate(mov);
+
+
 	}
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PalyerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour {
 	public GameObject rightBullet;
 	Transform firePos;
 
