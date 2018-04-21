@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour {
 	public float dashVelIncrease = 0.4f;
 	public float dashDuration = 1f;
 	private float dashTime = 0;
+	private Vector3 dashDirection;
 	//private Rigidbody2D rb;
 
 	void Start () {
@@ -14,22 +15,17 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	
 	void Update () {
-		float realVelocity = playerVelocity;
-		if (Input.GetKeyDown(KeyCode.LeftShift))
-		{
-			dashTime = dashDuration;
-		}
-
-		if (dashTime > 0)
-		{
-			dashTime -= Time.deltaTime;
-			realVelocity += dashVelIncrease;
-		}
 
 		bool movedHorizontal = Input.GetAxis("Horizontal") != 0;
 		bool movedVertical = Input.GetAxis("Vertical") != 0;
 
-		if (movedHorizontal || movedVertical)
+		if (dashTime > 0)
+		{
+			dashTime -= Time.deltaTime;
+			float realVelocity = playerVelocity + dashVelIncrease;
+			transform.Translate(dashDirection * realVelocity * Time.deltaTime);
+		}
+		else if (movedHorizontal || movedVertical)
 		{
 			Vector3 mov = Vector3.zero;
 			if (movedHorizontal)
@@ -37,9 +33,16 @@ public class PlayerMovement : MonoBehaviour {
 			
 			if (movedVertical)
 				mov += Vector3.up * Input.GetAxisRaw("Vertical");
-			
-			mov = mov.normalized * realVelocity * Time.deltaTime;
-			transform.Translate(mov);
+
+			mov = mov.normalized;
+
+			if (Input.GetKeyDown(KeyCode.LeftShift))
+			{
+				dashTime = dashDuration;
+				dashDirection = mov;
+			}
+
+			transform.Translate(mov * playerVelocity * Time.deltaTime);
 		}
 	}
 }
