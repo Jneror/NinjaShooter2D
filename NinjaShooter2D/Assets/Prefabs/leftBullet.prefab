@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212741482580395824}
   - component: {fileID: 58980430862533568}
   - component: {fileID: 50151025938993250}
-  - component: {fileID: 114742295337761758}
+  - component: {fileID: 114774902903793116}
   m_Layer: 0
   m_Name: leftBullet
   m_TagString: Untagged
@@ -78,7 +78,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &114742295337761758
+--- !u!114 &114774902903793116
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

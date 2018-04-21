@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletCtrl : MonoBehaviour {
-	public Vector2 speed;
-	Rigidbody2D rb;
+public class GunController : MonoBehaviour {
+	public bool isFiring;
+
+	public float bulletspeed;
+	
+	public float timeBetweenShots;
+	private float shotCounter;
+
+	public Transform firePoint;
 	// Use this for initialization
 	void Start () {
-		rb=GetComponent<Rigidbody2D>();
-		rb.velocity = speed;
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		rb.velocity = speed;
 	}
 }
