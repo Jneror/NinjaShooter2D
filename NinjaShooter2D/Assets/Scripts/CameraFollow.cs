@@ -15,9 +15,6 @@ public class CameraFollow : MonoBehaviour {
         Vector2 originPosition = Vector2.right * transform.position.x + Vector2.up * transform.position.y;
         Vector2 focusPosition = Vector2.right * target.position.x + Vector2.up * target.position.y;
         Vector2 finalPosition = Vector2.Lerp(originPosition, focusPosition, smoothFactor);
-
-        Debug.Log(focusPosition);
-
         transform.position = new Vector3(finalPosition.x, finalPosition.y, transform.position.z);
     }
 
