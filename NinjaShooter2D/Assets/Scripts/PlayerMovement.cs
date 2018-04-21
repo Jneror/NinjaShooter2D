@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 	public float playerVelocity = 2f;
 	public float dashVelIncrease = 0.4f;
+	public float dashDuration = 1f;
+	private float dashTime = 0;
 	//private Rigidbody2D rb;
 
 	void Start () {
@@ -12,6 +14,17 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	
 	void Update () {
+		float realVelocity = playerVelocity;
+		if (Input.GetKeyDown(KeyCode.LeftShift))
+		{
+			dashTime = dashDuration;
+		}
+
+		if (dashTime > 0)
+		{
+			dashTime -= Time.deltaTime;
+			realVelocity += dashVelIncrease;
+		}
 
 		bool movedHorizontal = Input.GetAxis("Horizontal") != 0;
 		bool movedVertical = Input.GetAxis("Vertical") != 0;
@@ -25,7 +38,7 @@ public class PlayerMovement : MonoBehaviour {
 			if (movedVertical)
 				mov += Vector3.up * Input.GetAxisRaw("Vertical");
 			
-			mov = mov.normalized * playerVelocity * Time.deltaTime;
+			mov = mov.normalized * realVelocity * Time.deltaTime;
 			transform.Translate(mov);
 		}
 	}
