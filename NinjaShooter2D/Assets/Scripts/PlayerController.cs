@@ -22,7 +22,6 @@ public class PalyerController : MonoBehaviour {
 	}
 	void Fire(){
 		BulletCtrl newBullet = Instantiate(rightBullet,firePos.position,Quaternion.identity);
-		norma = ;
-		newBullet.speed = new Vector2(Input.mousePosition.x/norma,Input.mousePosition.y/norma); 
+		newBullet.speed = new Vector2(Input.mousePosition.x,Input.mousePosition.y); 
 	}
 }
