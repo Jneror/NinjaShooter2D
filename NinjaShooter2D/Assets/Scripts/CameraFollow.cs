@@ -2,14 +2,20 @@
 
 public class CameraFollow : MonoBehaviour {
 	public Transform target;
-	public float smoothSpeed = 0.125f;
-	public Vector2 offset;
+    [Range(0, 1)]
+    public float smoothFactor = 0.3f;
+    private Vector3 offset;
 
-	void LateUpdate()
-	{
-		Vector2 targetPosition = new Vector2(target.position.x, target.position.y);
-		Vector3 smoothedPos = Vector2.Lerp(targetPosition, new Vector3(transform.position.x, transform.position.y), smoothSpeed);
-		transform.position =  new Vector3(smoothedPos.x, smoothedPos.y, -1);
-	}
+    void Start () 
+    {
+        offset = transform.position - target.position;
+    }
+    void LateUpdate () 
+    {
+        Vector2 originPosition = Vector2.right * transform.position.x + Vector2.up * transform.position.y;
+        Vector2 focusPosition = Vector2.right * target.position.x + Vector2.up * target.position.y;
+        Vector2 finalPosition = Vector2.Lerp(originPosition, focusPosition, smoothFactor);
+        transform.position = new Vector3(finalPosition.x, finalPosition.y, transform.position.z);
+    }
 
 }
