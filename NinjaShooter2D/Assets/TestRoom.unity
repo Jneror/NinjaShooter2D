@@ -122,11 +122,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4407632457766250, guid: 570745f7fba04454bbb9bde2d6424ac5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.4167843
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4407632457766250, guid: 570745f7fba04454bbb9bde2d6424ac5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -5.0347176
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4407632457766250, guid: 570745f7fba04454bbb9bde2d6424ac5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -154,15 +154,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4407632457766250, guid: 570745f7fba04454bbb9bde2d6424ac5, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.0001
+      value: 0.0002
       objectReference: {fileID: 0}
     - target: {fileID: 4407632457766250, guid: 570745f7fba04454bbb9bde2d6424ac5, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.0001
+      value: 0.0002
       objectReference: {fileID: 0}
     - target: {fileID: 4407632457766250, guid: 570745f7fba04454bbb9bde2d6424ac5, type: 2}
       propertyPath: m_LocalScale.z
-      value: 0.0001
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 23022718589189320, guid: 570745f7fba04454bbb9bde2d6424ac5,
         type: 2}
@@ -250,7 +250,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1
+  orthographic size: 8.06
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -428,7 +428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69103f8a357647a41826f7592251b101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerVelocity: 2
+  playerVelocity: 1
 --- !u!212 &2005360584
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -523,7 +523,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
