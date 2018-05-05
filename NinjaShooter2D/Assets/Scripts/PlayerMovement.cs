@@ -8,10 +8,12 @@ public class PlayerMovement : MonoBehaviour {
 	public float dashDuration = 1f;
 	private float dashTime = 0;
 	private Vector3 dashDirection;
+	Animator anim;
 	//private Rigidbody2D rb;
 
 	void Start () {
 		//rb = GetComponent<Rigidbody2D>();
+		anim = GetComponent<Animator>();
 	}
 	
 	void Update () {
@@ -34,6 +36,8 @@ public class PlayerMovement : MonoBehaviour {
 			if (movedVertical)
 				mov += Vector3.up * Input.GetAxisRaw("Vertical");
 
+			anim.SetFloat("movX",mov.x);
+			anim.SetFloat("movY",mov.y);
 			mov = mov.normalized;
 
 			if (Input.GetKeyDown(KeyCode.LeftShift))
@@ -44,5 +48,6 @@ public class PlayerMovement : MonoBehaviour {
 
 			transform.Translate(mov * playerVelocity * Time.deltaTime);
 		}
+		
 	}
 }

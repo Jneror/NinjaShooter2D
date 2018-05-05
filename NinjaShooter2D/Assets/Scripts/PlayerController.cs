@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PalyerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour {
 	public BulletCtrl rightBullet;
+	public float bulletvelocity;
+	public float rango = 1;
 	Transform firePos;
-	private float norma;
-	private float x;
-	private float y;
+	Vector2 dir;
 
 	// Use this for initialization
 	void Start () {
@@ -21,7 +21,10 @@ public class PalyerController : MonoBehaviour {
 		}
 	}
 	void Fire(){
-		BulletCtrl newBullet = Instantiate(rightBullet,firePos.position,Quaternion.identity);
-		newBullet.speed = new Vector2(Input.mousePosition.x,Input.mousePosition.y); 
+		dir = new Vector2(Camera.main.ScreenToWorldPoint (Input.mousePosition).x-firePos.position.x,Camera.main.ScreenToWorldPoint (Input.mousePosition).y-firePos.position.y);
+		dir = dir.normalized;
+		Vector3 pos = new Vector3(firePos.position.x + rango*dir.x,firePos.position.y + rango*dir.y ,0);
+		BulletCtrl newBullet = Instantiate(rightBullet,pos,Quaternion.identity);
+		newBullet.speed = bulletvelocity * dir.normalized;
 	}
 }
