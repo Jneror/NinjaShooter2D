@@ -3853,8 +3853,9 @@ MonoBehaviour:
   bulletVelocity: 10
   rango: 2
   playerVelocity: 3
-  dashVelocity: 50
+  dashVelocity: 25
   startDashTime: 0.1
+  smoke: {fileID: 1915493680367412, guid: 28cd12f24389e324aae3a4e2ea7b5cfb, type: 2}
 --- !u!212 &1434641651
 SpriteRenderer:
   m_ObjectHideFlags: 0

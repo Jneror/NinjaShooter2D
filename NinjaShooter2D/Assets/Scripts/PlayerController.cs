@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour {
 	
 	private Transform firePos;
 	private Vector2 dir;
+	public GameObject smoke;
 
 	// Use this for initialization
 	void Start () {
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour {
 		anim = GetComponent<Animator>();
 		dash = false;
 		velocity = playerVelocity;
+		dashTime = startDashTime;
 	}
 	
 	// Update is called once per frame
@@ -51,11 +53,13 @@ public class PlayerController : MonoBehaviour {
 			if (Input.GetKeyDown(KeyCode.LeftShift)){
 				dash = true;
 				velocity = dashVelocity;
+				Instantiate(smoke,transform.position,Quaternion.identity);
 			}
 		} else {
 			if (dashTime <= 0){
 				dash = false;
 				velocity = playerVelocity;
+				dashTime = startDashTime;
 			} else {
 				dashTime -= Time.deltaTime;
 			}
