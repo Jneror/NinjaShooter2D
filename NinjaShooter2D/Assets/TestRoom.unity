@@ -3853,6 +3853,8 @@ MonoBehaviour:
   bulletVelocity: 10
   rango: 2
   playerVelocity: 3
+  dashVelocity: 50
+  startDashTime: 0.1
 --- !u!212 &1434641651
 SpriteRenderer:
   m_ObjectHideFlags: 0

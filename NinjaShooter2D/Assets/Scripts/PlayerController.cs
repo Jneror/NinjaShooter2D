@@ -4,46 +4,67 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 	public BulletCtrl bullet;
-	public float bulletVelocity = 5f;
-	public float rango = 2f;
+	public float bulletVelocity;
+	public float rango;
 	
-	public float playerVelocity = 3f;
+	public float playerVelocity;
+
+	public float dashVelocity;
+	private float dashTime;
+	public float startDashTime;
+	private bool dash;
+	private float velocity;
 	
-	Animator anim;
-	Rigidbody2D rb2d;
-	Vector2 mov;
+	private Animator anim;
+	private Rigidbody2D rb2d;
+	private Vector2 mov;
 	
-	Transform firePos;
-	Vector2 dir;
+	private Transform firePos;
+	private Vector2 dir;
 
 	// Use this for initialization
 	void Start () {
 		firePos = transform.Find("firePos");
 		rb2d = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
+		dash = false;
+		velocity = playerVelocity;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		mov = new Vector2(
-			Input.GetAxisRaw("Horizontal"),
-			Input.GetAxisRaw("Vertical")
-		);
-		if (mov != Vector2.zero){
-			anim.SetFloat("movX",mov.x);
-			anim.SetFloat("movY",mov.y);
-			anim.SetBool("walking",true);
+		if (!dash){
+			mov = new Vector2(
+				Input.GetAxisRaw("Horizontal"),
+				Input.GetAxisRaw("Vertical")
+			);
+			if (mov != Vector2.zero){
+				anim.SetFloat("movX",mov.x);
+				anim.SetFloat("movY",mov.y);
+				anim.SetBool("walking",true);
+			} else {
+				anim.SetBool("walking",false);
+			}
+			if(Input.GetMouseButtonDown(0)){
+				Fire();
+			}
+			if (Input.GetKeyDown(KeyCode.LeftShift)){
+				dash = true;
+				velocity = dashVelocity;
+			}
 		} else {
-			anim.SetBool("walking",false);
-		}
-		if(Input.GetMouseButtonDown(0)){
-			Fire();
+			if (dashTime <= 0){
+				dash = false;
+				velocity = playerVelocity;
+			} else {
+				dashTime -= Time.deltaTime;
+			}
 		}
 	}
 
 	void FixedUpdate()
 	{
-		rb2d.MovePosition(rb2d.position + mov * playerVelocity * Time.deltaTime);
+		rb2d.MovePosition(rb2d.position + mov * velocity * Time.deltaTime);
 	}
 	
 	void Fire(){
