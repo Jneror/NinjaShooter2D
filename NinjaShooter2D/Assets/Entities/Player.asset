@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   displayName: 
-  maxHealth: 0
+  maxHealth: 12
   attackPower: 0
-  defense: 0
-  maxStamina: 0
+  maxStamina: 6
+  moveVelocity: 0
