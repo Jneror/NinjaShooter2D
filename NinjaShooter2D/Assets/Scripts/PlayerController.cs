@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
+	public Character features;
 	public BulletCtrl bullet;
 	public float bulletVelocity;
 	public float rango;
@@ -31,6 +32,8 @@ public class PlayerController : MonoBehaviour {
 		dash = false;
 		velocity = playerVelocity;
 		dashTime = startDashTime;
+		features.maxHealth = 3;
+		features.maxStamina = 3;
 	}
 	
 	// Update is called once per frame

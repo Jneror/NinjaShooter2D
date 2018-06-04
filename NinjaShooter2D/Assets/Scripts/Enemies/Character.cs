@@ -6,9 +6,9 @@ using UnityEngine;
 public class Character : ScriptableObject {
 	
 	public string displayName;
-	
-	public float maxHealth;
+	public int maxHealth;
 	public float attackPower;
 	public float defense;
+	public int maxStamina;
 
 }
