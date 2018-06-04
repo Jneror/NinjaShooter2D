@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour {
 	public float startDashTime;
 	private bool dash;
 	private float velocity;
+
+	public int currentHealth;
 	
 	private Animator anim;
 	private Rigidbody2D rb2d;
@@ -87,5 +89,9 @@ public class PlayerController : MonoBehaviour {
 			);
 		BulletCtrl newBullet = Instantiate(bullet,pos,Quaternion.identity);
 		newBullet.speed = bulletVelocity * dir.normalized;
+	}
+
+	public void ReceiveDamage(int damage) {
+		currentHealth -= damage;
 	}
 }
