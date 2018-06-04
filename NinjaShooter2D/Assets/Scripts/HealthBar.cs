@@ -8,17 +8,27 @@ public class HealthBar : MonoBehaviour {
 	// Use this for initialization
 	public GameObject Heart;
 	public float spacing = 30;
-	public PlayerController Player;
+
+	private List<GameObject> hearts;
 	void Start () {
-		List<GameObject> hearts = new List<GameObject>();
-		for (int i = 0; i < Player.features.maxHealth; i++) {
-			hearts.Add(Instantiate(Heart, new Vector3(spacing*i,0,0), Quaternion.identity) as GameObject);
-			hearts[i].transform.SetParent(GameObject.FindGameObjectWithTag("heart").transform, false);
-		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		
+	}
+
+	public void SetMaxHealth(int maxHealth)
+	{
+		hearts = new List<GameObject>();
+		for (int i = 0; i < maxHealth/4; i++) {
+			hearts.Add(Instantiate(Heart, new Vector3(spacing*i,0,0), Quaternion.identity) as GameObject);
+			hearts[i].transform.SetParent(GameObject.FindGameObjectWithTag("heart").transform, false);
+		}
+	}
+
+	public void UpdateHealth(int currentHealth)
+	{
 		
 	}
 }

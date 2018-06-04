@@ -7,21 +7,18 @@ public class PlayerController : MonoBehaviour {
 	public BulletCtrl bullet;
 	public float bulletVelocity;
 	public float rango;
-	
 	public float playerVelocity;
-
 	public float dashVelocity;
 	private float dashTime;
 	public float startDashTime;
 	private bool dash;
 	private float velocity;
-
 	public int currentHealth;
+	public HealthBar HealthBar;
 	
 	private Animator anim;
 	private Rigidbody2D rb2d;
 	private Vector2 mov;
-	
 	private Transform firePos;
 	private Vector2 dir;
 	public GameObject smoke;
@@ -34,6 +31,7 @@ public class PlayerController : MonoBehaviour {
 		dash = false;
 		velocity = playerVelocity;
 		dashTime = startDashTime;
+		HealthBar.SetMaxHealth(features.maxHealth);
 	}
 	
 	// Update is called once per frame
