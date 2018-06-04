@@ -7,8 +7,8 @@ public class Character : ScriptableObject {
 	
 	public string displayName;
 	public int maxHealth;
-	public float attackPower;
-	public float defense;
+	public int attackPower;
 	public int maxStamina;
+	public float moveVelocity;
 
 }
