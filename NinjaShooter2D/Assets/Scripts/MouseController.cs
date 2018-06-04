@@ -10,7 +10,7 @@ public class MouseController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
 		Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		transform.position = cursorPos;
 	}

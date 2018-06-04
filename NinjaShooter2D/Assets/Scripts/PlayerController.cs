@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour {
 			mov = new Vector2(
 				Input.GetAxisRaw("Horizontal"),
 				Input.GetAxisRaw("Vertical")
-			);
+			).normalized;
 			if (mov != Vector2.zero){
 				anim.SetFloat("movX",mov.x);
 				anim.SetFloat("movY",mov.y);
