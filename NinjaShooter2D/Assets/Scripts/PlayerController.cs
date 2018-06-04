@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour {
 			if(Input.GetMouseButtonDown(0)){
 				Fire();
 			}
-			if (Input.GetKeyDown(KeyCode.LeftShift)){
+			if (mov != Vector2.zero && Input.GetKeyDown(KeyCode.LeftShift)){
 				dash = true;
 				velocity = dashVelocity;
 				Instantiate(smoke,transform.position,Quaternion.identity);
